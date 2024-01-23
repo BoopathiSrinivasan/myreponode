@@ -1,0 +1,9 @@
+version: 0.2
+phases:
+  post_build:
+    commands:
+      - ls
+      - pwd
+      - zip -r function.zip .
+      - echo "Updating the lambda function"
+      - aws lambda update-function-code --function-name SampleLambda --zip-file fileb://function.zip
